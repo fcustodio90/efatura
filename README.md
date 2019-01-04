@@ -1,8 +1,12 @@
 # EfaturaScraper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/efatura_scraper`. To experiment with that code, run `bin/console` for an interactive prompt.
+Efatura is a portuguese finance website that you can visit at https://faturas.portaldasfinancas.gov.pt/
 
-TODO: Delete this and the text above, and describe your gem
+Sadly Efatura doesn't provide the portuguese users with a public API for GET REQUESTS. It has webservices that use SOAP but they are only for post requests and are only being used by tax / accounting programs etc to communicate clients invoices and whatnot to portuguese finances.
+
+So this is where EfaturaScraper comes in! efatura website data is populated via AJAX requests that fetch jsons from the backend. The goal of this app is to simulate a login in the backend and then fetch those same jsons that efatura uses to populate the app!
+
+Obviously this gem doesn't save any information and its merely used for educational purposes.
 
 ## Installation
 
@@ -22,7 +26,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First step - Initialize a scraper instance. For that you should do :
+
+    EfaturaScraper::EfaturaScraper.new(nif: 'your_nif', password: 'your_password', s_date: 'starting_date', e_date: 'ending_date')
+
+    Demonstration -----> EfaturaScraper::EfaturaScraper.new(nif: '483574834', password: 'rockybalboa', s_date: '2017-01-01', e_date: '2017-12-30') 
+
+    Also make sure that the starting and ending date are both in the same year because that's one of the requirements of efatura json successful requests. And make sure that the format is year-month-day. The gem comes with built in methods that verify if these conditions are met. If they are not mechanize won't even be initialized.
+
+Second Step - Fetch the faturas / invoices
+
+    EfaturaScraper::EfaturaScraper.faturas
+
+    And that's it. This returns a json parsed with all the invoices issued during the timeframe that you set during the initialize.
+
 
 ## Development
 
@@ -40,4 +57,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the EfaturaScraper project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/efatura_scraper/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the EfaturaScraper project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/fcustodio90/efatura_scraper/blob/master/CODE_OF_CONDUCT.md).
