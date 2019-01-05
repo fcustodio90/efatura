@@ -80,7 +80,7 @@ module Efatura
       # INITIATE A NEW MECHANIZE INSTANCE
       agent = Mechanize.new
       # FETCH THE LOGIN URL AND ITERATES THRO LOGIN_PAGE IN ORDER TO TARGET HTML COMPONENTS
-      agent.get(login_url) do |login_page|
+      agent.get(LOGIN_URL) do |login_page|
         # FETCHES THE LOGIN FORM FROM THE LOGIN PAGE
         login_form = login_page.form_with(name: 'loginForm')
         # SETS THE LOGIN USERNAME AKA NIF / NUMERO CONTRIBUINTE
@@ -90,7 +90,7 @@ module Efatura
         # SUBMITS THE FORM / LOGIN
         agent.submit(login_form)
         # AFTER A SUCCESSFUL LOGIN FETCH THE CONSUMIDOR PAGE IN ORDER TO RETRIEVE COOKIES
-        consumidor_page = agent.get(consumidor_url)
+        consumidor_page = agent.get(CONSUMIDOR_URL)
         # ASSIGN THE CONSUMIDOR FORM TO A VARIABLE
         consumidor_form = consumidor_page.form_with(name: 'form')
         # SUBMIT THE FORM
