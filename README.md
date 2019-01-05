@@ -35,9 +35,12 @@ Or install it yourself as:
 Start by configurating the Gem.
 
   For that you should do:
-
-    Efatura.configuration.nif = 'your nif'
-    Efatura.configuration.password = 'your password'
+  ```ruby
+  Efatura.configure do |config|
+    config.nif      = 'your nif'
+    config.password = 'your password'
+  end
+  ```
 
   Be sure that you set both configurations as strings.
 
@@ -48,12 +51,14 @@ Start by configurating the Gem.
   This should return an object of Efatura with nif and password set
 
   Also this gem comes with reset options for configuration. If you wish to reset the nif and password you should do:
-
-    Efatura.reset
+  ```ruby
+  Efatura.reset
+  ```
 
   And that's it. if you type:
-
-    Efatura.configuration => you'll see that nif and password are set as nil again.
+  ```ruby
+  Efatura.configuration #=> you'll see that nif and password are set as nil again.
+  ```
 
 
 2- Fetching the invoices
@@ -61,16 +66,18 @@ Start by configurating the Gem.
 After doing the configuration you are now able to retrieve the invoices between 2 date periods.
 
   In order to do this type:
-
-    Efatura.invoices(from_date, to_date)
+  ```ruby
+  Efatura.invoices(from_date, to_date)
+  ```
 
   Make sure that you pass both arguments as strings and also with the correct date format. YEAR-MONTH-DATE example: '2017-01-01'
 
   If you type the wrong format or wrong date you won't be able to retrieve any information. Also since we are sending a request to an efatura backend there's some validations that we can't avoid. So far i've detected that in order for the gem to retrieve the invoices both dates should be in the same YEAR!
 
   This is very important as it will not work if you send 
-
-    Efatura.invoices('2017-01-02', '2018-12-02')
+  ```ruby
+  Efatura.invoices('2017-01-02', '2018-12-02')
+  ```
 
 
 And that's pretty much it. Hope you enjoy!
