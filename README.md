@@ -6,7 +6,7 @@ Sadly Efatura doesn't provide the portuguese users with a public API for GET REQ
 
 So this is where EfaturaScraper comes in! efatura website data is populated via AJAX requests that fetch jsons from the backend. The goal of this app is to simulate a login in the backend and then fetch those same jsons that efatura uses to populate the app!
 
-Obviously this gem doesn't save any information and its merely used for educational purposes.
+Obviously this gem doesn't save any information and its merely used for educational purposes. It is also 100% OPEN SOURCED so feel free to contribute to it or report bugs! 
 
 ## Installation
 
@@ -49,7 +49,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/efatura_scraper. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/fcustodio90/efatura_scraper. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
