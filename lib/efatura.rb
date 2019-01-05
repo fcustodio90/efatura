@@ -1,4 +1,5 @@
 require 'efatura/version'
+require '../config/initializers/efatura'
 
 module Efatura
   require 'mechanize'
