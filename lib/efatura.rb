@@ -12,25 +12,17 @@ module Efatura
   # EFATURA WEBSITE IS POPULATED WITH AJAX REQUESTS
   # SO THE GOAL IS FETCH THE SAME JSONS THEY USE TO FEED DATA TO THE WEBSITE
   class Efatura
-    attr_reader :nif, :password, :cookies, :s_date, :e_date
-    attr_reader :login_url, :consumidor_url, :faturas_url
-    # INITIALIZE WITH NIF PASSWORD STARTING DATE AND ENDIND DATE
-    # ALL ARGUMENTS SHOULD BE STRINGS FOR THE INITIALIZER TO WORK
-    # ALSO THIS GEM COMES PACKED WITH VALIDATIONS FOR DATE FOR A SIMPLE REASON
-    # EFATURA CURRENTLY ONLY WORKS IF THE STARTING DATE AND ENDING DATE ARE
-    # BOTH IN THE SAME YEAR OR ELSE THE JSON REQUEST WON'T BE SUCCESSFUL.
-    # ALSO THE DATES SHOULD HAVE THIS FORMAT '2017-01-01' BUT IF THEY DON'T
-    # THERE'S VALIDATIONS TO SKIP THE LOGIN
+
     def initialize(nif:, password:, s_date:, e_date:)
       @nif = nif
       @password = password
       @s_date = s_date
       @e_date = e_date
       @cookies = {}
+    end
       @login_url = 'https://www.acesso.gov.pt/jsp/loginRedirectForm.jsp?path=painelAdquirente.action&partID=EFPF'
       @consumidor_url = 'https://faturas.portaldasfinancas.gov.pt/painelAdquirente.action'
       @faturas_url = 'https://faturas.portaldasfinancas.gov.pt/json/obterDocumentosAdquirente.action'
-    end
 
     def faturas
       # CALL THE SUCCESSFUL LOGIN
