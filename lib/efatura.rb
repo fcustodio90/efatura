@@ -32,14 +32,13 @@ module Efatura
   end
 
   def invoices
-    # CALL THE SUCCESSFUL LOGIN
-    login
     # SET THE RESPONSE REQUEST BY GIVING THE AJAX / JSON URL USED BY EFATURA
     # AND ASSIGNING THE COOKIE HEADERS
     response = RestClient::Request.execute(
       method: :get,
-      url: faturas_url,
-      cookies: cookies,
+      url: FATURAS_URL,
+      # CALL THE LOGIN METHOD THAT RETURNS AN HASH OF COOKIES
+      cookies: login,
       headers: {
         params: {
           'dataInicioFilter' => s_date,
@@ -76,6 +75,8 @@ module Efatura
   def login
     # IF DATE IS VALID EXECUTES THE LOGIN METHOD
     if date_valid?
+      # SET AN EMPTY HASH TO FEED LATER WITH AGENT COOKIE JAR
+      cookies = {}
       # INITIATE A NEW MECHANIZE INSTANCE
       agent = Mechanize.new
       # FETCH THE LOGIN URL AND ITERATES THRO LOGIN_PAGE IN ORDER TO TARGET HTML COMPONENTS
@@ -96,7 +97,8 @@ module Efatura
         agent.submit(consumidor_form)
         # MAPS THE COOKIE_JAR FROM AGENT OBJECT AND FEEDS IT TO THE COOKIES HASH
         # THAT WAS INITIALIZED WITH AN EMPTY HASH
-        @cookies = Hash[agent.cookie_jar.store.map { |i| i.cookie_value.split('=') }]
+        cookies = Hash[agent.cookie_jar.store.map { |i| i.cookie_value.split('=') }]
+        cookies
       end
     end
   end

@@ -6,7 +6,6 @@ module Efatura
     def initialize
       @nif = nil
       @password = nil
-      @cookies = {}
     end
   end
 end
