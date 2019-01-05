@@ -17,9 +17,7 @@ module Efatura
     CONSUMIDOR_URL = 'https://faturas.portaldasfinancas.gov.pt/painelAdquirente.action'
     FATURAS_URL = 'https://faturas.portaldasfinancas.gov.pt/json/obterDocumentosAdquirente.action'
 
-
-
-    def faturas
+    def invoices
       # CALL THE SUCCESSFUL LOGIN
       login
       # SET THE RESPONSE REQUEST BY GIVING THE AJAX / JSON URL USED BY EFATURA
