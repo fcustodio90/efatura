@@ -4,7 +4,7 @@ Efatura is a portuguese finance website that you can visit at https://faturas.po
 
 Sadly Efatura doesn't provide the portuguese users with a public API for GET REQUESTS. It has webservices that use SOAP but they are only for post requests and are only being used by tax / accounting programs etc to communicate clients invoices and whatnot to portuguese finances.
 
-So this is where EfaturaScraper comes in! efatura website data is populated via AJAX requests that fetch jsons from the backend. The goal of this app is to simulate a login in the backend and then fetch those same jsons that efatura uses to populate the app!
+So this is where EfaturaScraper comes in! efatura website data is populated via AJAX requests that fetch jsons from the backend. The goal of this GEM is to simulate a login in the backend and then fetch those same jsons that efatura uses to populate the app!
 
 Obviously this gem doesn't save any information and its merely used for educational purposes. It is also 100% OPEN SOURCED so feel free to contribute to it or report bugs! 
 
@@ -32,13 +32,16 @@ First step - Initialize a scraper instance. For that you should do :
 
     Demonstration -----> EfaturaScraper::EfaturaScraper.new(nif: '483574834', password: 'FY2X584FGD1P', s_date: '2017-01-01', e_date: '2017-12-30') 
 
+    you can then save it to a variable rocky_balboa = EfaturaScraper::EfaturaScraper.new(nif: '483574834', password: 'FY2X584FGD1P', s_date: '2017-01-01', e_date: '2017-12-30')
+
     Also make sure that the starting and ending date are both in the same year because that's one of the requirements of efatura json successful requests. And make sure that the format is year-month-day. The gem comes with built in methods that verify if these conditions are met. If they are not mechanize won't even be initialized.
 
 Second Step - Fetch the faturas / invoices
+    
+    Using the previous example with the rocky_balboa instance just do
+    rocky_balboa.faturas
 
-    EfaturaScraper::EfaturaScraper.faturas
-
-    And that's it. This returns a json parsed with all the invoices issued during the timeframe that you set during the initialize.
+    And that's it! This returns a json parsed with all the invoices issued during the timeframe that you set during the initialize.
 
 
 ## Development
