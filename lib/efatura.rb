@@ -1,6 +1,6 @@
-require 'efatura_scraper/version'
+require 'efatura/version'
 
-module EfaturaScraper
+module Efatura
   require 'mechanize'
   require 'rest-client'
   require 'date'
@@ -10,7 +10,7 @@ module EfaturaScraper
   # TO BUILD A REST-CLIENT REQUEST WITH COOKIES AS HEADERS
   # EFATURA WEBSITE IS POPULATED WITH AJAX REQUESTS
   # SO THE GOAL IS FETCH THE SAME JSONS THEY USE TO FEED DATA TO THE WEBSITE
-  class EfaturaScraper
+  class Efatura
     attr_reader :nif, :password, :cookies, :s_date, :e_date
     attr_reader :login_url, :consumidor_url, :faturas_url
     # INITIALIZE WITH NIF PASSWORD STARTING DATE AND ENDIND DATE
