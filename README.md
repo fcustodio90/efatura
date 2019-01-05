@@ -30,7 +30,7 @@ First step - Initialize a scraper instance. For that you should do :
 
     EfaturaScraper::EfaturaScraper.new(nif: 'your_nif', password: 'your_password', s_date: 'starting_date', e_date: 'ending_date')
 
-    Demonstration -----> EfaturaScraper::EfaturaScraper.new(nif: '483574834', password: 'rockybalboa', s_date: '2017-01-01', e_date: '2017-12-30') 
+    Demonstration -----> EfaturaScraper::EfaturaScraper.new(nif: '483574834', password: 'FY2X584FGD1P', s_date: '2017-01-01', e_date: '2017-12-30') 
 
     Also make sure that the starting and ending date are both in the same year because that's one of the requirements of efatura json successful requests. And make sure that the format is year-month-day. The gem comes with built in methods that verify if these conditions are met. If they are not mechanize won't even be initialized.
 
