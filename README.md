@@ -64,7 +64,7 @@ After doing the configuration you are now able to retrieve the invoices between 
 
     Efatura.invoices(from_date, to_date)
 
-  Make sure that you path both arguments as strings and also with the correct date format. YEAR-MONTH-DATE example: '2017-01-01'
+  Make sure that you pass both arguments as strings and also with the correct date format. YEAR-MONTH-DATE example: '2017-01-01'
 
   If you type the wrong format or wrong date you won't be able to retrieve any information. Also since we are sending a request to an efatura backend there's some validations that we can't avoid. So far i've detected that in order for the gem to retrieve the invoices both dates should be in the same YEAR!
 
