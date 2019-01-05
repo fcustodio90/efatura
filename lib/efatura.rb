@@ -13,16 +13,11 @@ module Efatura
   # SO THE GOAL IS FETCH THE SAME JSONS THEY USE TO FEED DATA TO THE WEBSITE
   class Efatura
 
-    def initialize(nif:, password:, s_date:, e_date:)
-      @nif = nif
-      @password = password
-      @s_date = s_date
-      @e_date = e_date
-      @cookies = {}
-    end
-      @login_url = 'https://www.acesso.gov.pt/jsp/loginRedirectForm.jsp?path=painelAdquirente.action&partID=EFPF'
-      @consumidor_url = 'https://faturas.portaldasfinancas.gov.pt/painelAdquirente.action'
-      @faturas_url = 'https://faturas.portaldasfinancas.gov.pt/json/obterDocumentosAdquirente.action'
+    LOGIN_URL = 'https://www.acesso.gov.pt/jsp/loginRedirectForm.jsp?path=painelAdquirente.action&partID=EFPF'
+    CONSUMIDOR_URL = 'https://faturas.portaldasfinancas.gov.pt/painelAdquirente.action'
+    FATURAS_URL = 'https://faturas.portaldasfinancas.gov.pt/json/obterDocumentosAdquirente.action'
+
+
 
     def faturas
       # CALL THE SUCCESSFUL LOGIN
