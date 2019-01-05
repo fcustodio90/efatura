@@ -1,17 +1,17 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'efatura_scraper/version'
+require 'efatura/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'efatura_scraper'
-  spec.version       = EfaturaScraper::VERSION
+  spec.name          = 'efatura'
+  spec.version       = Efatura::VERSION
   spec.authors       = ['filipe custodio']
   spec.email         = ['filipe.l.custodio@gmail.com']
 
   spec.summary       = %q{Scraper for efatura PT website}
-  spec.description   = %q{This gem scrapes all the invoices at any given date from efatura website}
-  spec.homepage      = "https://github.com/fcustodio90/efatura_scraper"
+  spec.description   = %q{efatura gem uses mechanize in order to login from the backend to efatura website to retrieve invoice information}
+  spec.homepage      = "https://github.com/fcustodio90/efatura"
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
