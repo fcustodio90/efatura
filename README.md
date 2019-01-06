@@ -46,7 +46,9 @@ Start by configurating the Gem.
 
   You can check if the values are set by doing:
 
+    ```ruby
     Efatura.configuration
+    ```
 
   This should return an object of Efatura with nif and password set
 
